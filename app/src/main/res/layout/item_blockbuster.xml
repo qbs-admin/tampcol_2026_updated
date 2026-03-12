@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/blockbuster_img1"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:layout_below="@+id/icon122"
+    android:background="@drawable/rounded_cart">
+
+    <LinearLayout
+        android:id="@+id/blockbuster"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/blockbuster_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                tools:src="@drawable/logo" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ofer_img"
+                android:layout_width="@dimen/spacing_30"
+                android:layout_height="@dimen/spacing_30"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_offer" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/ofer_txt"
+                android:layout_width="30dp"
+                android:layout_height="@dimen/spacing_30"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_10"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/margin_5"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/b_product_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nike Air Max 2090"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toRightOf="@+id/img1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/ts_ratingbar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:numStars="6"
+                    android:paddingStart="3dp"
+                    android:paddingTop="1dp"
+                    android:paddingEnd="15dp"
+                    android:progressTint="#FFC107"
+                    android:rating="6" />
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:id="@+id/b_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:layout_marginBottom="@dimen/margin_5" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:padding="2dp">
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/b_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:text="₹150"
+                        android:textColor="@color/green"
+                        android:textSize="14sp" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/bb_discount_layout"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+
+                        android:layout_marginLeft="3dp"
+                        android:layout_toRightOf="@+id/b_price">
+
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/b_discount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="₹180"
+                            android:textColor="@color/red"
+                            android:textSize="11sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dip"
+                            android:layout_margin="@dimen/margin_4"
+                            android:background="@color/red"
+                            android:foregroundGravity="center"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </RelativeLayout>
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDealExpire"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:maxLines="1"
+                    android:textColor="#811212"
+                    android:textSize="13sp"
+                    tools:text="Expires: 22-Sep-2023" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/add_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="@dimen/margin_5"
+                    android:background="@drawable/add_to_cart2"
+                    android:elevation="8dp"
+                    android:gravity="center"
+                    android:outlineSpotShadowColor="@color/cool_grey"
+                    android:paddingStart="32dp"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="32dp"
+                    android:paddingBottom="8dp"
+                    android:shadowColor="@color/cool_grey"
+                    android:text="Add"
+                    android:textColor="@color/red"
+                    android:textSize="13sp"
+                    android:fontFamily="@font/poppins_bold"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

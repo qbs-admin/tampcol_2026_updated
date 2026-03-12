@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_homeFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cartFragment"
+            app:destination="@id/myCartFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+
+        <action
+            android:id="@+id/action_homeFragment_to_ContactusFragment"
+            app:destination="@id/contactusFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_blockBusterFragment"
+            app:destination="@id/blockBusterFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_productSearchFragment"
+            app:destination="@id/productSearchFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/productSearchFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.ProductsSearchFragment"
+        android:label="Products">
+        <action
+            android:id="@+id/action_productSearchFragment_to_addingToCartFragment"
+            app:destination="@id/addingToCartFragment" />
+        <action
+            android:id="@+id/action_productSearchFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contactusFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.drawerFragment.ContactusFragment"
+        android:label="fragment_contactus"
+        tools:layout="@layout/contactus_fragment" />
+    <fragment
+        android:id="@+id/blockBusterFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.drawerFragment.BlockBusterFragment"
+        android:label="fragment_blockbuster"
+        tools:layout="@layout/fragment_product">
+        <action
+            android:id="@+id/action_bbusterFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+        <action
+            android:id="@+id/action_favoriteFragment_to_cartFragment"
+            app:destination="@id/myCartFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/myOrdersFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.MyOrdersFragment"
+        android:label="fragment_my_orders"
+        tools:layout="@layout/fragment_my_orders" />
+    <fragment
+        android:id="@+id/myCartFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.MyCartFragment"
+        android:label="fragment_my_cart"
+        tools:layout="@layout/fragment_my_cart">
+        <action
+            android:id="@+id/action_myCartFragment_to_checkOutFragment"
+            app:destination="@id/checkOutFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings">
+
+        <action
+            android:id="@+id/action_settingsFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment" />
+        <action
+            android:id="@+id/action_addAddressFragment_to_settingsFragment"
+            app:destination="@id/addAddressFragment" />
+        <action
+            android:id="@+id/action_addAddressFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.ProductFragment"
+        android:label="ProductFragment">
+        <action
+            android:id="@+id/action_productFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_productFragment_to_addingToCartFragment"
+            app:destination="@id/addingToCartFragment" />
+        <action
+            android:id="@+id/action_productFragment_to_mycartFragment"
+            app:destination="@id/myCartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.ProductDetailsFragment"
+        android:label="ProductDetailsFragment">
+
+        <action
+            android:id="@+id/action_productDetailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_productDetailsFragment_to_cartFragment"
+            app:destination="@id/myCartFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/action_loginFragment_to_productFragment"
+            app:destination="@id/productFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgetFragment"
+            app:destination="@id/forgetFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/forgetFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.ForgetFragment"
+        android:label="ForgetFragment">
+        <action
+            android:id="@+id/action_forgetFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.SignUpFragment"
+        android:label="SignUpFragment">
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAddressFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.AddAddressFragment"
+        android:label="AddAddressFragment">
+        <action
+            android:id="@+id/action_addAddressFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.WebViewFragment"
+        android:label="WebViewFragment" />
+    <fragment
+        android:id="@+id/addingToCartFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.AddingToCartFragment"
+        android:label="AddingToCartFragment">
+        <action
+            android:id="@+id/action_addAddressFragment_to_mycartFragment"
+            app:destination="@id/myCartFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/checkOutFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.CheckOutFragment"
+        android:label="fragment_check_out"
+        tools:layout="@layout/fragment_check_out">
+        <action
+            android:id="@+id/action_checkOutFragment_to_addAddressFragment"
+            app:destination="@id/addAddressFragment" />
+
+        <action
+            android:id="@+id/action_checkOutFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.qbrains.tampcolapp.ui.fragments.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
+</navigation>
+

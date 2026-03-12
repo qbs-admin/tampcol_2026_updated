@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragments.drawerFragment.ContactusFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbAddAddress"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/purple_500"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="Contact us"
+        tools:ignore="MissingPrefix" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clGetInTouch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titletxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="150dp"
+            android:text="Get In Touch"
+            android:textAlignment="center"
+            android:textColor="@color/cb_blue_button_light"
+            android:textSize="@dimen/size_18"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/site_address_icon"
+            android:layout_width="@dimen/spacing_30"
+            android:layout_height="@dimen/spacing_30"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/white"
+            android:src="@drawable/home256"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titletxt" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/site_address_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
+            android:text="aaaaaaa"
+            app:layout_constraintBottom_toBottomOf="@+id/site_address_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/site_address_icon"
+            app:layout_constraintTop_toTopOf="@+id/site_address_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/site_email_icon"
+            android:layout_width="@dimen/spacing_30"
+            android:layout_height="@dimen/spacing_30"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/white"
+            android:src="@drawable/email256"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/site_address_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/site_email_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
+            android:text="aaaaaaa"
+            app:layout_constraintBottom_toBottomOf="@+id/site_email_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/site_email_icon"
+            app:layout_constraintTop_toTopOf="@+id/site_email_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/site_ph_icon"
+            android:layout_width="@dimen/spacing_30"
+            android:layout_height="@dimen/spacing_30"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/white"
+            android:src="@drawable/phone256"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/site_email_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/site_ph_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
+            android:text="aaaaaaa"
+            app:layout_constraintBottom_toBottomOf="@+id/site_ph_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/site_ph_icon"
+            app:layout_constraintTop_toTopOf="@+id/site_ph_icon" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/site_timing_icon"
+            android:layout_width="@dimen/spacing_30"
+            android:layout_height="@dimen/spacing_30"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/white"
+            android:foregroundTint="@color/white"
+            android:outlineAmbientShadowColor="@color/white"
+            android:src="@drawable/clock256"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/site_ph_icon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/site_timing_txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_16"
+            android:text="aaaaaaa"
+            app:layout_constraintBottom_toBottomOf="@+id/site_timing_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/site_timing_icon"
+            app:layout_constraintTop_toTopOf="@+id/site_timing_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/pbContactUs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

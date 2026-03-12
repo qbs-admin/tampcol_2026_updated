@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.fragments.CheckOutFragment">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbCart"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/purple_500"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/toolbar_title"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/check_out" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:id="@+id/scrollbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/spacing_60"
+        app:layout_constraintTop_toBottomOf="@+id/tbCart">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+
+            <include
+                android:id="@+id/include_default_address"
+                layout="@layout/default_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeaderPayment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:fontFamily="@font/roboto_medium"
+                android:text="Payment"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include_default_address" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvPaymentType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:paddingStart="@dimen/spacing_normal"
+                android:paddingTop="@dimen/spacing_small"
+                android:paddingEnd="@dimen/spacing_small"
+                app:cardCornerRadius="@dimen/margin_6"
+
+                android:visibility="visible"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeaderPayment">
+
+                <RadioGroup
+                    android:id="@+id/rgPaymentType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_cash_on_delivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        android:text="Cash on Delivery" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/viewColor" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_online_payment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        android:layout_weight="1"
+                        android:text="Online Payment" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/rb_razorpay_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+
+                        android:text="Online Payment" />
+                </RadioGroup>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvOrderDetailsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:paddingTop="@dimen/spacing_small"
+                app:cardCornerRadius="@dimen/margin_6"
+                app:layout_constraintBottom_toTopOf="@+id/content_placement_order"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cvPaymentType">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="70dp"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <!--            <androidx.appcompat.widget.AppCompatTextView-->
+                    <!--                android:id="@+id/savedRs"-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:layout_below="@+id/relativeCouponApplied"-->
+                    <!--                android:layout_alignParentStart="true"-->
+                    <!--                android:fontFamily="@font/roboto_medium"-->
+                    <!--                android:gravity="center"-->
+                    <!--                android:paddingTop="@dimen/margin_4"-->
+                    <!--                android:text="You Have Saved"-->
+                    <!--                android:textColor="@color/green"-->
+                    <!--                android:textSize="@dimen/size_14"-->
+
+                    <!--                android:textStyle="bold" />-->
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/myRewPts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/relativeCouponApplied"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:fontFamily="@font/roboto_medium"
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/margin_4"
+                        android:text="Your Reward Points"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/size_15" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/minRewpts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/relativeCouponApplied"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="@dimen/spacing_10"
+                        android:fontFamily="@font/roboto_medium"
+
+                        android:paddingLeft="@dimen/margin_2"
+                        android:paddingTop="@dimen/margin_4"
+                        android:text="min Reward Points"
+                        android:textColor="@color/textTitle"
+                        android:textSize="@dimen/size_13" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvOrderDetailsList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_card_detail_list" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/no_cart_item"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/content_placement_order"
+                layout="@layout/content_order_total"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_18"
+                android:layout_marginEnd="@dimen/spacing_18"
+                android:padding="@dimen/margin_5"
+                app:layout_constraintBottom_toTopOf="@+id/btnPlacement"
+                app:layout_constraintTop_toBottomOf="@+id/cvOrderDetailsList" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPlacement"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_60"
+                android:layout_marginStart="@dimen/spacing_normal"
+                android:layout_marginEnd="@dimen/spacing_normal"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/placement"
+                android:visibility="gone"
+                app:cornerRadius="@dimen/spacing_small"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/pbCheckOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "434884724337",
+    "project_id": "tampcol-app",
+    "storage_bucket": "tampcol-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434884724337:android:d8505040b9633fca3c7dd0",
+        "android_client_info": {
+          "package_name": "com.qbrains.tampcolapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434884724337-02ka26mojip5g33g5fohm27ibvki7o8j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qbrains.tampcolapp",
+            "certificate_hash": "530e74731113d5d75e97593a163049754eae2328"
+          }
+        },
+        {
+          "client_id": "434884724337-o5nemmeuskdbuiv3r58m9bunkfmsiu9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.qbrains.tampcolapp",
+            "certificate_hash": "ea0ba4ba4689e034888b41dc5254863765b7fcb1"
+          }
+        },
+        {
+          "client_id": "434884724337-hhb52jnafqhcgkfaoh3nq44t29oguuhs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjF1AG0A_LWFivmAFfMDkMUTrmGY3Yly0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434884724337-hhb52jnafqhcgkfaoh3nq44t29oguuhs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

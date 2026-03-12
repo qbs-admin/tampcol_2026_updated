@@ -1,0 +1,269 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+//    id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
+//    id 'kotlinx-serialization'
+
+    id 'kotlin-parcelize'
+
+}
+
+//Tampcol.jks
+//password: success (both)
+//alias: qbs
+
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+
+
+    compileSdk 35
+    namespace "com.qbrains.tampcolapp"
+
+
+
+    defaultConfig {
+        applicationId "com.qbrains.tampcolapp"
+        minSdkVersion 24
+        targetSdkVersion 35
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+//    multiDexEnabled true
+//    vectorDrawables.usFeSupportLibrary = true
+//    dataBinding {
+//        enabled = true
+//    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    android.buildFeatures.buildConfig true
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    flavorDimensions "environment"
+    /*app flavors*/
+    productFlavors {
+        dev {
+            versionCode 2
+            versionName "1.0.4"
+            dimension "environment"
+//            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "Tampcol"
+            resValue "string", "google_client_id", "434884724337-02ka26mojip5g33g5fohm27ibvki7o8j.apps.googleusercontent.com"
+            resValue "string", "google_client_secret", "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"
+            buildConfigField 'String', 'BASE_URL', '"https://tampcol.com/public/api/android/v1/"'
+            buildConfigField 'String', 'GOOGLE_URL', '"https://www.googleapis.com/oauth2/"'
+
+            buildConfigField 'String', 'RAZORPAY_KEY', '"rzp_live_572yaQdpWRfwzE"'
+        }
+
+        prod {
+            versionCode 9
+            versionName "2.0.0"
+            dimension "environment"
+            resValue "string", "app_name", "Tampcol"
+//            resValue "string", "google_client_id", "635032242401-vldu6o2nqka9jl2ceiiv4f8g44uo1gen.apps.googleusercontent.com"
+            resValue "string", "google_client_id", "434884724337-02ka26mojip5g33g5fohm27ibvki7o8j.apps.googleusercontent.com"
+
+            resValue "string", "google_client_secret", "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"
+            buildConfigField 'String', 'BASE_URL', '"https://tampcol.com/public/api/android/v1/"'
+            buildConfigField 'String', 'GOOGLE_URL', '"https://www.googleapis.com/oauth2/"'
+
+            buildConfigField 'String', 'RAZORPAY_KEY', '"rzp_live_572yaQdpWRfwzE"'
+        }
+
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies { configuration ->
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation platform('com.google.firebase:firebase-bom:29.1.0')
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
+    implementation 'com.google.firebase:firebase-messaging:23.0.2'
+    implementation 'androidx.databinding:databinding-runtime:8.0.2'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //  region Networking - Stetho
+    implementation "com.facebook.stetho:stetho:1.5.1"
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.1"
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.9'
+    implementation 'com.airbnb.android:lottie:3.5.0'
+
+
+    //navigation component
+    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0'
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0'
+//    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
+//    implementation 'com.github.smarteist:autoimageslider:1.3.9'
+
+    implementation fileTree(dir: 'libs', include: ['*.aar'])
+
+    //razopay
+//    implementation 'com.razorpay:checkout:1.6.12'
+
+    //pinview
+    implementation 'com.github.aabhasr1:OtpView:v1.1.2-ktx'
+
+    // Google Login
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+
+    // Facebook Login
+    implementation('com.google.firebase:firebase-auth:21.1.0') {
+        exclude module: "play-services-ads-identifier"
+        exclude module: "play-services-measurement"
+        exclude module: "play-services-measurement-sdk"
+        exclude module: "play-services-safetynet"
+    }
+    implementation 'com.facebook.android:facebook-login:15.2.0'
+
+//    implementation 'com.google.android.play:core:1.6.4'
+
+    // Razor Payment
+    implementation 'com.razorpay:checkout:1.6.40'
+
+    /////////kotlin serialize for list<> in database
+//    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+
+    //payumoney
+//    implementation 'in.payu:payu-checkout-pro:1.8.2'
+
+//    implementation 'in.payu:payu-checkout-pro:1.7.6'
+//    implementation 'in.payu:olamoney:1.1.0'
+//    implementation 'in.payu:phonepe-intent:1.6.1'
+//    implementation 'in.payu:payu-gpay:1.4.0'
+
+//    volley
+    implementation 'com.android.volley:volley:1.2.1'
+
+
+    kotlin(configuration)
+    androidX(configuration)
+    network(configuration)
+    androidTest(configuration)
+    tracking(configuration)
+//    payuMoney(configuration)
+
+
+}
+
+private static void tracking(configuration) {
+
+    configuration.implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+    configuration.implementation 'com.google.firebase:firebase-analytics:17.4.3'
+    configuration.implementation 'com.google.firebase:firebase-messaging:20.2.0'
+
+}
+
+private static void androidTest(configuration) {
+    configuration.testImplementation 'junit:junit:4.12'
+    configuration.androidTestImplementation 'androidx.test:runner:1.2.0'
+    configuration.androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    configuration.androidTestImplementation 'androidx.arch.core:core-testing:2.1.0-beta01'
+    configuration.androidTestImplementation 'androidx.test:core:1.2.0'
+    configuration.androidTestImplementation 'androidx.test:monitor:1.2.0'
+}
+
+private static void androidX(configuration) {
+
+    configuration.implementation 'androidx.multidex:multidex:2.0.0'
+    configuration.implementation 'androidx.appcompat:appcompat:1.0.2'
+    configuration.implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    configuration.implementation 'com.google.android.material:material:1.1.0-alpha06'
+    configuration.implementation 'androidx.cardview:cardview:1.0.0'
+    configuration.implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    configuration.implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    configuration.implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    configuration.implementation 'androidx.core:core-ktx:1.0.2'
+    /*room*/
+    configuration.implementation 'androidx.room:room-ktx:2.1.0'
+    configuration.implementation 'androidx.room:room-runtime:2.1.0'
+    configuration.kapt 'androidx.room:room-compiler:2.1.0'
+
+
+    /*life cycle */
+    configuration.implementation 'androidx.lifecycle:lifecycle-runtime:2.2.0-alpha01'
+    configuration.implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01'
+    configuration.implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01'
+    configuration.implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01'
+
+
+    configuration.implementation 'androidx.multidex:multidex:2.0.1'
+//    configuration.implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
+
+    // region Android - JetPack - Navigation
+    configuration.implementation 'androidx.navigation:navigation-runtime-ktx:2.2.0-rc02'
+    configuration.implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0-rc02'
+    configuration.implementation 'androidx.navigation:navigation-ui-ktx:2.2.0-rc02'
+    // endregion
+
+
+}
+
+private static void kotlin(configuration) {
+    configuration.implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.41'
+    configuration.implementation 'org.jetbrains.kotlin:kotlin-reflect:1.3.41'
+
+}
+
+/*private static void payuMoney(configuration) {
+    configuration.implementation 'in.payu:payu-checkout-pro:1.7.6'
+    configuration.implementation 'com.google.android.material:material:1.3.0'
+    configuration.implementation 'in.payu:olamoney:1.1.0'
+    configuration.implementation 'in.payu:phonepe-intent:1.6.1'
+    configuration.implementation 'in.payu:payu-gpay:1.4.0'
+}*/
+
+private static void network(configuration) {
+    /*retrofit*/
+    configuration.implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    configuration.implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    configuration.implementation 'com.google.code.gson:gson:2.8.5'
+//    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    /*coroutines*/
+    configuration.implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    configuration.implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+    configuration.implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+    /*Glide*/
+    configuration.implementation 'com.github.bumptech.glide:glide:4.9.0'
+    configuration.kapt 'com.github.bumptech.glide:compiler:4.9.0'
+
+
+    /*Stetho*/
+    configuration.implementation 'com.facebook.stetho:stetho:1.5.0'
+    configuration.implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+}
